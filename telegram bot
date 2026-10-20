@@ -1,0 +1,15 @@
+import telebot
+
+TOKEN = "8882657159:AAE33kth3iZCavK6JSLiEmN78sDV8fsNkDc"
+
+bot = telebot.TeleBot(TOKEN)
+
+@bot.message_handler(commands=['start'])
+def start(message):
+    print(message.chat.id)
+    bot.send_message(
+        message.chat.id,
+        f"Сәлем! Сенің Chat ID: {message.chat.id}"
+    )
+
+bot.polling()
